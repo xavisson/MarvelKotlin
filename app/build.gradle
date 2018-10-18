@@ -1,3 +1,5 @@
+apply from: '../dependencies/globalDependencies.gradle'
+apply from: 'dependencies/dependencies.gradle'
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
