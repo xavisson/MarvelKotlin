@@ -1,7 +1,8 @@
-package com.xavisson.marvel
+package com.xavisson.marvel.presentation
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.xavisson.marvel.R
 
 class MainActivity : AppCompatActivity() {
 
