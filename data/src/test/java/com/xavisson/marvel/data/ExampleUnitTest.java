@@ -1,4 +1,4 @@
-package com.xavisson.data;
+package com.xavisson.marvel.data;
 
 import org.junit.Test;
 

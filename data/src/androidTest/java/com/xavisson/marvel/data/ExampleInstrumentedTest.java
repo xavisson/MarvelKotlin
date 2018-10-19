@@ -1,4 +1,4 @@
-package com.xavisson.data;
+package com.xavisson.marvel.data;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.xavisson.data.test", appContext.getPackageName());
+        assertEquals("com.xavisson.marvel.data.test", appContext.getPackageName());
     }
 }

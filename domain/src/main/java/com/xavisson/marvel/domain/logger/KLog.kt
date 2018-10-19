@@ -1,4 +1,4 @@
-package com.xavisson.domain.logger
+package com.xavisson.marvel.domain.logger
 
 import java.io.PrintWriter
 import java.io.StringWriter
