@@ -1,5 +1,7 @@
 package com.xavisson.marvel.lifecycle
 
+import com.xavisson.marvel.base.BasePresenter
+import com.xavisson.marvel.base.BaseView
 import java.lang.reflect.Modifier
 
 open class PresenterLifeCycleLinker {
@@ -9,23 +11,28 @@ open class PresenterLifeCycleLinker {
         setView(view)
         callOnCreate()
     }
+
     fun onResume(view: BaseView) {
         presenters.forEach { presenter ->
             presenter.setView(view)
             presenter.onResume()
         }
     }
+
     fun onPause() {
         presenters.forEach { it.onPause() }
     }
+
     fun onDestroy() {
         presenters.forEach {
             it.onDestroy()
         }
     }
+
     fun onFirstLayout() {
         presenters.forEach { it.onFirstLayout() }
     }
+
     private fun addAnnotatedPresenters(kClass: Class<*>, source: Any) {
         if (isOneOfOurNonPresentedClass(kClass)) {
             return
@@ -53,18 +60,23 @@ open class PresenterLifeCycleLinker {
                     }
                 }
     }
+
     private fun isOneOfOurNonPresentedClass(kClass: Class<*>): Boolean {
         return kClass.kotlin == Any::class
     }
+
     private fun registerPresenter(presenter: BasePresenter<BaseView>) {
         presenters.add(presenter)
     }
+
     private fun setView(view: BaseView) {
         presenters.forEach { it.setView(view) }
     }
+
     private fun callOnCreate() {
         presenters.forEach { it.onCreate() }
     }
+
     fun onLowMemory() {
         presenters.forEach { it.handleUnexpectedOnDestroy() }
     }
