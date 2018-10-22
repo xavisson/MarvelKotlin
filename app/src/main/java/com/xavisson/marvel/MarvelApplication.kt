@@ -3,6 +3,9 @@ package com.xavisson.marvel
 import android.app.Application
 import com.xavisson.marvel.domain.logger.Kog
 import com.xavisson.marvel.domain.logger.Logger
+import com.xavisson.marvel.injection.components.ApplicationComponent
+import com.xavisson.marvel.injection.components.DaggerApplicationComponent
+import com.xavisson.marvel.injection.modules.ApplicationModule
 import com.xavisson.marvel.logger.AndroidLogger
 
 class MarvelApplication : Application() {

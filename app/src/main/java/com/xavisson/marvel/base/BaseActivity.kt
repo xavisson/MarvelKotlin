@@ -5,14 +5,20 @@ import android.support.v7.app.AppCompatActivity
 import com.xavisson.marvel.lifecycle.PresenterLifeCycleLinker
 
 abstract class BaseActivity : AppCompatActivity(), BaseView {
+
     abstract val layoutRes: Int
+
     private val presenterLifeCycleLinker = PresenterLifeCycleLinker()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initInjector()
         setContentView(layoutRes)
         setupViews()
         presenterLifeCycleLinker.onCreate(this)
     }
+
+    abstract fun initInjector()
 
     override fun onResume() {
         super.onResume()
