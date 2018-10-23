@@ -28,11 +28,8 @@ data class CharacterImage(
         @SerializedName("extension") val extension: String?
 )
 
-fun SearchCharactersApiModel.toDomain(query: String): SearchCharacterItem {
-    return SearchCharacterItem(
-            items = data?.results?.map { it.toDomain() } ?: emptyList(),
-            characterName = query
-    )
+fun SearchCharactersApiModel.toDomain(): List<CharacterItem> {
+    return data?.results?.map { it.toDomain() } ?: emptyList()
 }
 
 fun CharacterApiModel.toDomain(): CharacterItem {
