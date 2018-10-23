@@ -1,5 +1,6 @@
 package com.xavisson.marvel.data.character
 
+import com.xavisson.marvel.data.BuildConfig
 import com.xavisson.marvel.data.client.ApiClientBuilder
 import com.xavisson.marvel.data.client.MarvelApiClient
 import com.xavisson.marvel.domain.character.CharacterApi
@@ -22,8 +23,8 @@ class CharacterApiClient : CharacterApi {
         ).buildEndpoint(BrewerydbApiDefinition::class)
 
 
-        val publicAPIKey = ""
-        val privateAPIKey = ""
+        val publicAPIKey = BuildConfig.PublicApiKey
+        val privateAPIKey = BuildConfig.PrivateApiKey
         val ts = java.lang.Long.toString(System.currentTimeMillis() / 1000)
         var pass = ts + privateAPIKey + publicAPIKey
         var password: String? = null

@@ -25,16 +25,22 @@ android {
             debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', "PublicApiKey", MarvelAPI_PublicApiKey
+            buildConfigField 'String', "PrivateApiKey", MarvelAPI_PrivateApiKey
         }
         staging {
             debuggable true
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', "PublicApiKey", MarvelAPI_PublicApiKey
+            buildConfigField 'String', "PrivateApiKey", MarvelAPI_PrivateApiKey
         }
         release {
             debuggable false
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', "PublicApiKey", MarvelAPI_PublicApiKey
+            buildConfigField 'String', "PrivateApiKey", MarvelAPI_PrivateApiKey
         }
     }
 }
