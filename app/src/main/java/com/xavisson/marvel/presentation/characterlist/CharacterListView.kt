@@ -12,7 +12,7 @@ interface CharacterUI
 
 data class CharacterItemUI(
         val name: String,
-        val imageUrl: String
+        val imageUrl: String?
 ) : CharacterUI
 
 fun List<CharacterItem>.toUI(): List<CharacterItemUI> {
