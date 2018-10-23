@@ -10,4 +10,6 @@ class CharacterListPresenter : BasePresenter<CharacterListView>() {
     }
 
     fun onCharacterPressed(beer: CharacterItemUI) {}
+
+    fun onSearchChanged(search: String) {}
 }

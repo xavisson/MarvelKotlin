@@ -12,7 +12,9 @@ import com.xavisson.marvel.lifecycle.Presenter
 import com.xavisson.marvel.presentation.characterlist.adapter.CharacterItemRenderer
 import com.xavisson.marvel.presentation.characterlist.injector.CharacterListModule
 import com.xavisson.marvel.presentation.characterlist.injector.DaggerCharacterListComponent
+import com.xavisson.marvel.presentation.utils.setupEditTextOnTextChangedListener
 import kotlinx.android.synthetic.main.characterlist_layout.*
+import kotlinx.android.synthetic.main.toolbar_search.*
 import javax.inject.Inject
 
 class CharacterListActivity : BaseActivity(), CharacterListView {
@@ -28,6 +30,10 @@ class CharacterListActivity : BaseActivity(), CharacterListView {
     override fun setupViews() {
         setupAdapter()
         setupRecyclerView()
+
+        searchText.setupEditTextOnTextChangedListener(onTextChangedBlock = {
+            presenter.onSearchChanged(it)
+        })
     }
 
     override fun initInjector() {
