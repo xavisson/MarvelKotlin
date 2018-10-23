@@ -1,10 +1,14 @@
 package com.xavisson.marvel.base
 
 import com.xavisson.marvel.domain.logger.Logger
+import com.xavisson.marvel.domain.reactive.DisposeBag
 import java.lang.ref.WeakReference
 
 abstract class BasePresenter<T : BaseView> {
+
     private var view: WeakReference<T>? = null
+    var disposeBag: DisposeBag = DisposeBag()
+
     fun setView(view: T) {
         this.view = WeakReference(view)
         Logger.d {
@@ -13,6 +17,11 @@ abstract class BasePresenter<T : BaseView> {
     }
 
     fun getView(): T? = view?.get()
+
+    fun clearDisposeBag() {
+        disposeBag.dispose()
+    }
+    
     open fun onCreate() {}
     open fun onFirstLayout() {}
     open fun onResume() {
