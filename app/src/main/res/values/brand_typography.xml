@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Heading1" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">28dp</item>
+        <item name="android:height">32dp</item>
+        <item name="android:textColor">@color/brown</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Heading1_inverted" parent="Heading1">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="Heading2" parent="android:TextAppearance">
+        <item name="android:textSize">18dp</item>
+        <item name="android:height">24dp</item>
+        <item name="android:textColor">@color/brown</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Heading2_inverted" parent="Heading2">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="Title1" parent="android:TextAppearance">
+        <item name="android:textSize">18dp</item>
+        <item name="android:height">24dp</item>
+        <item name="android:textColor">@color/brown</item>
+    </style>
+    <style name="Title2" parent="android:TextAppearance">
+        <item name="android:textSize">16dp</item>
+        <item name="android:height">24dp</item>
+        <item name="android:textColor">@color/brown</item>
+    </style>
+    <style name="Body1" parent="android:TextAppearance">
+        <item name="android:textSize">16dp</item>
+        <item name="android:height">24dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="Body2" parent="android:TextAppearance">
+        <item name="android:textSize">14dp</item>
+        <item name="android:height">16dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="Body2_inverted" parent="Body2">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="Link1" parent="android:TextAppearance">
+        <item name="android:textSize">18dp</item>
+        <item name="android:height">24dp</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+    <style name="Link2" parent="android:TextAppearance">
+        <item name="android:textSize">14dp</item>
+        <item name="android:height">16dp</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+    <style name="Caption" parent="android:TextAppearance">
+        <item name="android:textSize">12dp</item>
+        <item name="android:height">16dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>
