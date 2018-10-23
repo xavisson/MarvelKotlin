@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Marvel Demo</string>
     <string name="searchbar_hint">Search your fav superhero!</string>
+    <string name="no_results">No results found</string>
 </resources>

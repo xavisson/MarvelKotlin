@@ -6,7 +6,7 @@ class CharacterListPresenter : BasePresenter<CharacterListView>() {
 
     override fun onCreate() {
         super.onCreate()
-        getView()?.showCharacterList(listOf())
+        getView()?.showCharacterList(emptyList())
     }
 
     fun onCharacterPressed(beer: CharacterItemUI) {}

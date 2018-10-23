@@ -33,7 +33,8 @@
                 android:background="@android:color/transparent"
                 android:gravity="center_vertical"
                 android:hint="@string/searchbar_hint"
-                android:textAppearance="@style/Link1"
+                android:maxLines="1"
+                android:textAppearance="@style/Body1"
                 android:textColor="@color/brown"
                 android:textColorHint="@color/orange" />
         </android.support.v7.widget.CardView>

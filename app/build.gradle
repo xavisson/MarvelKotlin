@@ -65,4 +65,5 @@ dependencies {
     //Support
     implementation "com.android.support:appcompat-v7:${appCompatV7Version}"
     implementation "com.android.support:cardview-v7:${appCompatV7Version}"
+    implementation "com.android.support:design:${appCompatV7Version}"
 }

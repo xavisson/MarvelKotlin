@@ -12,7 +12,9 @@ import com.xavisson.marvel.lifecycle.Presenter
 import com.xavisson.marvel.presentation.characterlist.adapter.CharacterItemRenderer
 import com.xavisson.marvel.presentation.characterlist.injector.CharacterListModule
 import com.xavisson.marvel.presentation.characterlist.injector.DaggerCharacterListComponent
+import com.xavisson.marvel.presentation.utils.gone
 import com.xavisson.marvel.presentation.utils.setupEditTextOnTextChangedListener
+import com.xavisson.marvel.presentation.utils.visible
 import kotlinx.android.synthetic.main.characterlist_layout.*
 import kotlinx.android.synthetic.main.toolbar_search.*
 import javax.inject.Inject
@@ -21,7 +23,7 @@ class CharacterListActivity : BaseActivity(), CharacterListView {
 
     override val layoutRes: Int = R.layout.characterlist_layout
 
-    lateinit var charactersAdapter: RVRendererAdapter<CharacterUI>
+    private lateinit var charactersAdapter: RVRendererAdapter<CharacterUI>
 
     @Presenter
     @Inject
@@ -45,13 +47,26 @@ class CharacterListActivity : BaseActivity(), CharacterListView {
     }
 
     override fun showCharacterList(characterItems: List<CharacterUI>) {
-        charactersAdapter.diffUpdate(characterItems)
+        if (characterItems.hasItems()) {
+            characterList.visible()
+            emptyLayout.gone()
+            charactersAdapter.diffUpdate(characterItems)
+        } else {
+            characterList.gone()
+            emptyLayout.visible()
+        }
     }
+
+    private fun List<CharacterUI>.hasItems(): Boolean {
+        return size > 0
+    }
+
     private fun setupAdapter() {
         val rendererBuilder = RendererBuilder<CharacterUI>()
                 .bind(CharacterItemUI::class.java, CharacterItemRenderer({ presenter.onCharacterPressed(it) }))
         charactersAdapter = RVRendererAdapter(rendererBuilder, ListAdapteeCollection())
     }
+
     private fun setupRecyclerView() {
         characterList.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         characterList.setHasFixedSize(true)
