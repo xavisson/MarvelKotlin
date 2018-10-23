@@ -2,4 +2,6 @@ ext {
     daggerVersion = '2.7'
     appCompatV7Version = '27.1.1'
     renderersVersion = '3.3.0'
+    rxAndroidVersion = '2.0.1'
+    rxKotlinVersion = '2.0.3'
 }
