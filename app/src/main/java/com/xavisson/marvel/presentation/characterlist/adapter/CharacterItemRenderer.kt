@@ -5,7 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.pedrogomez.renderers.Renderer
 import com.xavisson.marvel.R
+import com.xavisson.marvel.domain.logger.Logger
 import com.xavisson.marvel.presentation.characterlist.CharacterItemUI
+import com.xavisson.marvel.presentation.utils.loadImage
 import kotlinx.android.synthetic.main.characterlist_item.view.*
 
 class CharacterItemRenderer(
@@ -26,7 +28,8 @@ class CharacterItemRenderer(
     override fun render() {
         with(rootView) {
             name.text = content.name
-
+            image.loadImage(content.imageUrl)
+            Logger.d { "xtest_image: ${content.imageUrl}" }
         }
     }
 }

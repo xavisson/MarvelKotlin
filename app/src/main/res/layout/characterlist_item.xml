@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="180dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -12,18 +12,27 @@
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY"/>
+            android:scaleType="centerCrop" />
 
-        <TextView
-            android:id="@+id/name"
+        <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp"
-            android:textAppearance="@style/Title2"
-            tools:text="Name" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="8dp">
 
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/title_background"
+                android:paddingBottom="8dp"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:textAppearance="@style/Heading2_inverted"
+                tools:text="Name" />
+        </FrameLayout>
     </RelativeLayout>
 </FrameLayout>

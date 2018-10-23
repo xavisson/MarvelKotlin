@@ -36,6 +36,6 @@ fun CharacterApiModel.toDomain(): CharacterItem {
     return CharacterItem(
             id = id!!,
             name = name ?: "Unknown",
-            imageUrl = thumbnail?.path + thumbnail?.extension
+            imageUrl = thumbnail?.path + "." + thumbnail?.extension
     )
 }
