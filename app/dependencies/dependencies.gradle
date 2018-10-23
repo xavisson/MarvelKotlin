@@ -1,4 +1,5 @@
 ext {
     daggerVersion = '2.7'
     appCompatV7Version = '27.1.1'
+    renderersVersion = '3.3.0'
 }
