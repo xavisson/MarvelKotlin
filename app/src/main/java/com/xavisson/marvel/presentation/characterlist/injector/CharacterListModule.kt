@@ -1,6 +1,7 @@
 package com.xavisson.marvel.presentation.characterlist.injector
 
 import android.app.Activity
+import com.xavisson.marvel.domain.character.CharacterApi
 import com.xavisson.marvel.domain.character.CharacterResource
 import com.xavisson.marvel.domain.character.SearchForCharacters
 import com.xavisson.marvel.domain.character.SearchForCharactersUseCase
@@ -40,15 +41,16 @@ class CharacterListModule(acitvity: Activity) : ActivityModule {
 
     @Provides
     fun provideBeerResource(
+            characterApi: CharacterApi
     ): CharacterResource {
-        return CharacterResource()
+        return CharacterResource(characterApi)
     }
 }
 
 @PerActivity
 @Component(
         dependencies = arrayOf(ApplicationComponent::class),
-        modules = arrayOf(CharacterListModule::class)
+        modules = arrayOf(CharacterListModule::class, MarvelModule::class)
 )
 interface CharacterListComponent : ActivityComponent {
     fun inject(activity: CharacterListActivity)
