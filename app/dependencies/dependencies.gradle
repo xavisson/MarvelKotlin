@@ -4,4 +4,5 @@ ext {
     renderersVersion = '3.3.0'
     rxAndroidVersion = '2.0.1'
     rxKotlinVersion = '2.0.3'
+    glideVersion = '4.8.0'
 }
