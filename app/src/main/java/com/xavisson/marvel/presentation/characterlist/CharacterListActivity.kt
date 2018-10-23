@@ -1,5 +1,6 @@
 package com.xavisson.marvel.presentation.characterlist
 
+import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.LinearLayout
 import com.pedrogomez.renderers.ListAdapteeCollection
@@ -55,6 +56,11 @@ class CharacterListActivity : BaseActivity(), CharacterListView {
             characterList.gone()
             emptyLayout.visible()
         }
+    }
+
+    override fun showSearchingError() {
+        Snackbar.make(charactersLayout, R.string.error_searching, Snackbar.LENGTH_LONG)
+                .show()
     }
 
     private fun List<CharacterUI>.hasItems(): Boolean {
