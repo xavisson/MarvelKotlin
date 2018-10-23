@@ -10,7 +10,7 @@ import kotlin.reflect.KClass
 
 class ApiClientBuilder(apiClient: MarvelApiClient, converterFactoryParam: GsonConverterFactory? = null) {
     companion object {
-        private const val BASE_URL: String = "http://api.brewerydb.com/"
+        private const val BASE_URL: String = "https://gateway.marvel.com"
     }
 
     private val gsonBuilder: Gson = GsonBuilder()
