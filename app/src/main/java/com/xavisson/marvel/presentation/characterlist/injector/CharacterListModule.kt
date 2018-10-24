@@ -1,6 +1,6 @@
 package com.xavisson.marvel.presentation.characterlist.injector
 
-import android.app.Activity
+import android.support.v7.app.AppCompatActivity
 import com.xavisson.marvel.domain.character.CharacterApi
 import com.xavisson.marvel.domain.character.CharacterResource
 import com.xavisson.marvel.domain.character.SearchForCharacters
@@ -12,19 +12,23 @@ import com.xavisson.marvel.injection.components.ApplicationComponent
 import com.xavisson.marvel.injection.modules.ActivityModule
 import com.xavisson.marvel.presentation.characterlist.CharacterListActivity
 import com.xavisson.marvel.presentation.characterlist.CharacterListPresenter
+import com.xavisson.marvel.presentation.navigator.ActivityNavigator
+import com.xavisson.marvel.presentation.navigator.ApplicationActivityNavigator
 import dagger.Component
 import dagger.Module
 import dagger.Provides
 
 @Module
-class CharacterListModule(acitvity: Activity) : ActivityModule {
+class CharacterListModule(private val activity: AppCompatActivity) : ActivityModule {
 
     @Provides
     fun provideCharacterListPresenter(
-            searchForCharactersUseCase: SearchForCharactersUseCase
+            searchForCharactersUseCase: SearchForCharactersUseCase,
+            activityNavigator: ActivityNavigator
     ): CharacterListPresenter {
         return CharacterListPresenter(
-                searchForCharactersUseCase
+                searchForCharactersUseCase,
+                activityNavigator
         )
     }
 
@@ -40,11 +44,16 @@ class CharacterListModule(acitvity: Activity) : ActivityModule {
     }
 
     @Provides
-    fun provideBeerResource(
+    fun provideCharacterResource(
             characterApi: CharacterApi
     ): CharacterResource {
         return CharacterResource(characterApi)
     }
+
+    @Provides
+    fun provideActivityNavigator(): ActivityNavigator = ApplicationActivityNavigator(
+            activity
+    )
 }
 
 @PerActivity
