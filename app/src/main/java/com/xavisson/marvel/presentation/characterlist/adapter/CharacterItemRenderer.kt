@@ -29,7 +29,6 @@ class CharacterItemRenderer(
         with(rootView) {
             name.text = content.name
             image.loadImage(content.imageUrl)
-            Logger.d { "xtest_image: ${content.imageUrl}" }
         }
     }
 }

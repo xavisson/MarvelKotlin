@@ -2,6 +2,7 @@ package com.xavisson.marvel.presentation.characterlist
 
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.widget.LinearLayout
 import com.pedrogomez.renderers.ListAdapteeCollection
 import com.pedrogomez.renderers.RVRendererAdapter
@@ -19,6 +20,8 @@ import com.xavisson.marvel.presentation.utils.visible
 import kotlinx.android.synthetic.main.characterlist_layout.*
 import kotlinx.android.synthetic.main.toolbar_search.*
 import javax.inject.Inject
+import android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE
+
 
 class CharacterListActivity : BaseActivity(), CharacterListView {
 
@@ -29,6 +32,8 @@ class CharacterListActivity : BaseActivity(), CharacterListView {
     @Presenter
     @Inject
     lateinit var presenter: CharacterListPresenter
+
+    private var hasScrolledYet: Boolean = false
 
     override fun setupViews() {
         setupAdapter()
@@ -77,5 +82,17 @@ class CharacterListActivity : BaseActivity(), CharacterListView {
         characterList.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         characterList.setHasFixedSize(true)
         characterList.adapter = charactersAdapter
+        characterList.addOnScrollListener(characterListOnScrollListener)
+    }
+
+    private val characterListOnScrollListener = object : RecyclerView.OnScrollListener() {
+        override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+            super.onScrollStateChanged(recyclerView, newState)
+            if (newState == SCROLL_STATE_IDLE) {
+                searchBar.visible()
+            } else {
+                searchBar.gone()
+            }
+        }
     }
 }
