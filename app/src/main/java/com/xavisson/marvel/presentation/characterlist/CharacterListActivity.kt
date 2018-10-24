@@ -14,13 +14,11 @@ import com.xavisson.marvel.lifecycle.Presenter
 import com.xavisson.marvel.presentation.characterlist.adapter.CharacterItemRenderer
 import com.xavisson.marvel.presentation.characterlist.injector.CharacterListModule
 import com.xavisson.marvel.presentation.characterlist.injector.DaggerCharacterListComponent
-import com.xavisson.marvel.presentation.utils.gone
-import com.xavisson.marvel.presentation.utils.setupEditTextOnTextChangedListener
-import com.xavisson.marvel.presentation.utils.visible
 import kotlinx.android.synthetic.main.characterlist_layout.*
 import kotlinx.android.synthetic.main.toolbar_search.*
 import javax.inject.Inject
 import android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE
+import com.xavisson.marvel.presentation.utils.*
 
 
 class CharacterListActivity : BaseActivity(), CharacterListView {
@@ -32,8 +30,6 @@ class CharacterListActivity : BaseActivity(), CharacterListView {
     @Presenter
     @Inject
     lateinit var presenter: CharacterListPresenter
-
-    private var hasScrolledYet: Boolean = false
 
     override fun setupViews() {
         setupAdapter()
@@ -89,9 +85,9 @@ class CharacterListActivity : BaseActivity(), CharacterListView {
         override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
             if (newState == SCROLL_STATE_IDLE) {
-                searchBar.visible()
+                searchBar.slideDown()
             } else {
-                searchBar.gone()
+                searchBar.slideUp()
             }
         }
     }
