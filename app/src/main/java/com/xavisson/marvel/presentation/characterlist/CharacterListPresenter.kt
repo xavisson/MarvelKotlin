@@ -11,7 +11,7 @@ class CharacterListPresenter(
 
     override fun onCreate() {
         super.onCreate()
-        getView()?.showCharacterList(emptyList())
+        getView()?.showLoadingSpinner()
         onSearchChanged("")
     }
 
@@ -20,9 +20,11 @@ class CharacterListPresenter(
     fun onSearchChanged(search: String) {
         searchForCharactersUseCase.execute(search).subscribeBy(
                 onNext = {
+                    getView()?.hideLoadingSpinner()
                     getView()?.showCharacterList(it.toUI())
                 },
                 onError = {
+                    getView()?.hideLoadingSpinner()
                     getView()?.showSearchingError()
                 }
         ).addDisposableTo(disposeBag)

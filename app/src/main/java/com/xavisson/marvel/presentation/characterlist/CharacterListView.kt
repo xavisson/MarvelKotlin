@@ -6,6 +6,8 @@ import com.xavisson.marvel.domain.character.CharacterItem
 interface CharacterListView : BaseView {
     fun showCharacterList(characterItems: List<CharacterUI>)
     fun showSearchingError()
+    fun showLoadingSpinner()
+    fun hideLoadingSpinner()
 }
 
 interface CharacterUI

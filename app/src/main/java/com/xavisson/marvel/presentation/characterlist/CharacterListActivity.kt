@@ -64,6 +64,14 @@ class CharacterListActivity : BaseActivity(), CharacterListView {
                 .show()
     }
 
+    override fun hideLoadingSpinner() {
+        loadingSpinner.gone()
+    }
+
+    override fun showLoadingSpinner() {
+        loadingSpinner.visible()
+    }
+
     private fun List<CharacterUI>.hasItems(): Boolean {
         return size > 0
     }
