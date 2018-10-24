@@ -21,11 +21,13 @@ class CharacterApiClient : CharacterApi {
         val publicAPIKey = BuildConfig.PublicApiKey
         val timestamp = java.lang.Long.toString(System.currentTimeMillis() / 1000)
         val hash = getHash(timestamp)
+        val nameStartsWith = if (searchText == "") null else searchText
 
         return marvelApiClient.getCharacters(
                 publicKey = publicAPIKey,
                 timestamp = timestamp,
-                hash = hash
+                hash = hash,
+                nameStartsWith = nameStartsWith
         ).map { it.toDomain() }
     }
 }
@@ -36,6 +38,7 @@ interface CharactersApiDefinition {
     fun getCharacters(
             @Query("apikey") publicKey: String,
             @Query("hash") hash: String,
-            @Query("ts") timestamp: String
+            @Query("ts") timestamp: String,
+            @Query("nameStartsWith") nameStartsWith: String?
     ): Observable<SearchCharactersApiModel>
 }

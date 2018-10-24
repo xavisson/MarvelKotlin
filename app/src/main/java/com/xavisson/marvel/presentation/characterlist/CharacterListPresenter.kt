@@ -12,6 +12,7 @@ class CharacterListPresenter(
     override fun onCreate() {
         super.onCreate()
         getView()?.showCharacterList(emptyList())
+        onSearchChanged("")
     }
 
     fun onCharacterPressed(beer: CharacterItemUI) {}
