@@ -2,7 +2,7 @@ package com.xavisson.marvel.data.character
 
 import com.google.gson.annotations.SerializedName
 import com.xavisson.marvel.domain.character.CharacterItem
-import com.xavisson.marvel.domain.character.SearchCharacterItem
+import com.xavisson.marvel.domain.character.CharacterItemComics
 
 data class SearchCharactersApiModel(
         @SerializedName("data") val data: DataApiModel?
@@ -20,12 +20,18 @@ data class CharacterApiModel(
         @SerializedName("id") val id: Int?,
         @SerializedName("name") val name: String?,
         @SerializedName("description") val description: String?,
-        @SerializedName("thumbnail") val thumbnail: CharacterImage?
+        @SerializedName("thumbnail") val thumbnail: CharacterImage?,
+        @SerializedName("comics") val comics: CharacterComics?
 )
 
 data class CharacterImage(
         @SerializedName("path") val path: String?,
         @SerializedName("extension") val extension: String?
+)
+
+data class CharacterComics(
+        @SerializedName("available") val available: Int?,
+        @SerializedName("collectionURI") val collectionURI: String?
 )
 
 fun SearchCharactersApiModel.toDomain(): List<CharacterItem> {
@@ -36,6 +42,15 @@ fun CharacterApiModel.toDomain(): CharacterItem {
     return CharacterItem(
             id = id!!,
             name = name ?: "Unknown",
-            imageUrl = thumbnail?.path + "." + thumbnail?.extension
+            imageUrl = thumbnail?.path + "." + thumbnail?.extension,
+            description = description ?: "",
+            comics = comics?.toDomain()
+    )
+}
+
+fun CharacterComics.toDomain(): CharacterItemComics {
+    return CharacterItemComics(
+            available = available,
+            collectionURI = collectionURI
     )
 }
