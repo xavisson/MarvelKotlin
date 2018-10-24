@@ -13,5 +13,7 @@ class CharacterResource(
                 .doOnNext { currentCharacterList = it }
     }
 
-
+    fun getCharacterFromId(characterId: Int): Observable<CharacterItem> {
+        return Observable.just(currentCharacterList.find { it.id == characterId })
+    }
 }
