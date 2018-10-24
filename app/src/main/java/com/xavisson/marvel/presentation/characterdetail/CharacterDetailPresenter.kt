@@ -17,7 +17,7 @@ class CharacterDetailPresenter(
 
     fun getCharacterDetails() {
         getCharacterFromIdUseCase.execute(characterId!!).subscribeBy(
-                onNext = { }
+                onNext = { getView()?.showCharacterDetails(it)}
         )
     }
 }

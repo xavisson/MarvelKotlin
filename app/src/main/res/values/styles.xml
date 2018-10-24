@@ -15,4 +15,10 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
+    <style name="TransparentToolbar">
+        <item name="theme">@style/ThemeOverlay.AppCompat.Dark</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
 </resources>
