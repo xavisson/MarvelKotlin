@@ -1,6 +1,7 @@
 package com.xavisson.marvel.injection.components
 
 import com.xavisson.marvel.MarvelApplication
+import com.xavisson.marvel.domain.character.CharacterResource
 import com.xavisson.marvel.domain.executor.PostExecutionThread
 import com.xavisson.marvel.domain.executor.ThreadExecutor
 import com.xavisson.marvel.domain.executor.ThreadScheduler
@@ -20,4 +21,6 @@ interface ApplicationComponent {
     fun threadExecutor(): ThreadExecutor
 
     fun postExecutionThread(): PostExecutionThread
+
+    fun characterResource(): CharacterResource
 }

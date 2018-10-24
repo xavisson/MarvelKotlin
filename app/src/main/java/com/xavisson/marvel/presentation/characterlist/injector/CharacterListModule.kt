@@ -10,6 +10,7 @@ import com.xavisson.marvel.injection.PerActivity
 import com.xavisson.marvel.injection.components.ActivityComponent
 import com.xavisson.marvel.injection.components.ApplicationComponent
 import com.xavisson.marvel.injection.modules.ActivityModule
+import com.xavisson.marvel.injection.modules.CharacterModule
 import com.xavisson.marvel.presentation.characterlist.CharacterListActivity
 import com.xavisson.marvel.presentation.characterlist.CharacterListPresenter
 import com.xavisson.marvel.presentation.navigator.ActivityNavigator
@@ -41,13 +42,6 @@ class CharacterListModule(private val activity: AppCompatActivity) : ActivityMod
                 characterResource = characterResource,
                 threadScheduler = threadScheduler
         )
-    }
-
-    @Provides
-    fun provideCharacterResource(
-            characterApi: CharacterApi
-    ): CharacterResource {
-        return CharacterResource(characterApi)
     }
 
     @Provides
