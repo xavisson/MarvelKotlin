@@ -18,7 +18,7 @@ class CharacterListPresenter(
     }
 
     fun onCharacterPressed(character: CharacterItemUI) {
-        activityNavigator.goToCharacterDetail()
+        activityNavigator.goToCharacterDetail(character.id)
     }
 
     fun onSearchChanged(search: String) {
@@ -32,5 +32,9 @@ class CharacterListPresenter(
                     getView()?.showSearchingError()
                 }
         ).addDisposableTo(disposeBag)
+    }
+
+    companion object {
+        const val ID_NOT_FOUND = -1
     }
 }

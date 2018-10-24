@@ -13,6 +13,7 @@ interface CharacterListView : BaseView {
 interface CharacterUI
 
 data class CharacterItemUI(
+        val id: Int,
         val name: String,
         val imageUrl: String?
 ) : CharacterUI
@@ -23,6 +24,7 @@ fun List<CharacterItem>.toUI(): List<CharacterItemUI> {
 
 fun CharacterItem.toUI(): CharacterItemUI {
     return CharacterItemUI(
+            id = id,
             name = name,
             imageUrl = imageUrl
     )
