@@ -3,6 +3,7 @@ package com.xavisson.marvel.presentation.characterdetail
 import com.xavisson.marvel.base.BasePresenter
 import com.xavisson.marvel.domain.character.GetCharacterFromIdUseCase
 import com.xavisson.marvel.domain.logger.Logger
+import com.xavisson.marvel.presentation.characterlist.toUI
 import io.reactivex.rxkotlin.subscribeBy
 
 class CharacterDetailPresenter(
@@ -17,7 +18,7 @@ class CharacterDetailPresenter(
 
     fun getCharacterDetails() {
         getCharacterFromIdUseCase.execute(characterId!!).subscribeBy(
-                onNext = { getView()?.showCharacterDetails(it)}
+                onNext = { getView()?.showCharacterDetails(it.toUI())}
         )
     }
 }

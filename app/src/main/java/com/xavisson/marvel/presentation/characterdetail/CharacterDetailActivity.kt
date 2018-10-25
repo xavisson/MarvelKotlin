@@ -7,6 +7,7 @@ import com.xavisson.marvel.domain.character.CharacterItem
 import com.xavisson.marvel.lifecycle.Presenter
 import com.xavisson.marvel.presentation.characterdetail.injector.CharacterDetailModule
 import com.xavisson.marvel.presentation.characterdetail.injector.DaggerCharacterDetailComponent
+import com.xavisson.marvel.presentation.characterlist.CharacterItemUI
 import com.xavisson.marvel.presentation.characterlist.CharacterListPresenter.Companion.ID_NOT_FOUND
 import com.xavisson.marvel.presentation.navigator.IntentExtras
 import com.xavisson.marvel.presentation.utils.loadImage
@@ -33,7 +34,7 @@ class CharacterDetailActivity : BaseActivity(), CharacterDetailView {
         presenter.characterId = intent.getIntExtra(IntentExtras.CHARACTER_ID, ID_NOT_FOUND)
     }
 
-    override fun showCharacterDetails(characterDetails: CharacterItem) {
+    override fun showCharacterDetails(characterDetails: CharacterItemUI) {
         characterImage.loadImage(characterDetails.imageUrl)
         toolbar.title = characterDetails.name
         description.text = characterDetails.description
