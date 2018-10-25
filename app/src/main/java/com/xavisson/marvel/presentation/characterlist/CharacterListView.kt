@@ -31,11 +31,17 @@ fun List<CharacterItem>.toUI(): List<CharacterItemUI> {
 }
 
 fun CharacterItem.toUI(): CharacterItemUI {
+
+    val descriptionString = if (description == null || description != "")
+        description!!
+    else
+        "Sorry, but there's no description available for this character" //TODO: Use TextWrapper with resId
+
     return CharacterItemUI(
             id = id,
             name = name,
             imageUrl = imageUrl,
-            description = description,
+            description = descriptionString,
             comics = comics?.toUI()
     )
 }

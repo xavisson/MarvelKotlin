@@ -60,7 +60,7 @@ class CharacterListActivity : BaseActivity(), CharacterListView {
     }
 
     override fun showSearchingError() {
-        Snackbar.make(charactersLayout, R.string.error_searching, Snackbar.LENGTH_LONG)
+        Snackbar.make(charactersLayout, R.string.characterlist_error_searching, Snackbar.LENGTH_LONG)
                 .show()
     }
 
