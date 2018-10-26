@@ -17,7 +17,7 @@ data class ComicWrapperApiModel(
 
 data class ComicApiModel(
         @SerializedName("id") val id: Int?,
-        @SerializedName("name") val name: String?,
+        @SerializedName("title") val name: String?,
         @SerializedName("thumbnail") val thumbnail: ComicImage?
 )
 
@@ -33,7 +33,7 @@ fun SearchComicsApiModel.toDomain(): List<ComicItem> {
 fun ComicApiModel.toDomain(): ComicItem {
     return ComicItem(
             id = id!!,
-            name = name ?: "Unknown",
+            title = name ?: "Unknown title",
             imageUrl = thumbnail?.path + "." + thumbnail?.extension
     )
 }

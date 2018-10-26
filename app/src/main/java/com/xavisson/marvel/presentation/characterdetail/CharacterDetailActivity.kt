@@ -15,7 +15,9 @@ import com.xavisson.marvel.presentation.characterdetail.injector.DaggerCharacter
 import com.xavisson.marvel.presentation.characterlist.CharacterItemUI
 import com.xavisson.marvel.presentation.characterlist.CharacterListPresenter.Companion.ID_NOT_FOUND
 import com.xavisson.marvel.presentation.navigator.IntentExtras
+import com.xavisson.marvel.presentation.utils.gone
 import com.xavisson.marvel.presentation.utils.loadImage
+import com.xavisson.marvel.presentation.utils.visible
 import kotlinx.android.synthetic.main.characterdetail_layout.*
 import javax.inject.Inject
 
@@ -51,7 +53,18 @@ class CharacterDetailActivity : BaseActivity(), CharacterDetailView {
     }
 
     override fun showComicList(comicItems: List<ComicUI>) {
-        comicsAdapter.diffUpdate(comicItems)
+        if (comicItems.hasItems()) {
+            comicList.visible()
+            noComicsAvailable.gone()
+            comicsAdapter.diffUpdate(comicItems)
+        } else {
+            comicList.gone()
+            noComicsAvailable.visible()
+        }
+    }
+
+    private fun List<ComicUI>.hasItems(): Boolean {
+        return size > 0
     }
 
     private fun setupAdapter() {

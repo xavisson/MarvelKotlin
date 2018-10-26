@@ -1,9 +1,6 @@
 package com.xavisson.marvel.data.comic
 
 import com.xavisson.marvel.data.BuildConfig
-import com.xavisson.marvel.data.character.CharactersApiDefinition
-import com.xavisson.marvel.data.character.SearchCharactersApiModel
-import com.xavisson.marvel.data.character.toDomain
 import com.xavisson.marvel.data.client.ApiClientBuilder
 import com.xavisson.marvel.data.client.MarvelApiClient
 import com.xavisson.marvel.data.utils.getHash

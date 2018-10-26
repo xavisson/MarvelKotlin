@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import com.pedrogomez.renderers.Renderer
 import com.xavisson.marvel.R
 import com.xavisson.marvel.presentation.characterdetail.ComicItemUI
+import com.xavisson.marvel.presentation.utils.loadImage
+import kotlinx.android.synthetic.main.comiclist_item.view.*
 
 class ComicItemRenderer(
         private val onClick: (item: ComicItemUI) -> Unit = {}
@@ -24,7 +26,7 @@ class ComicItemRenderer(
 
     override fun render() {
         with(rootView) {
-            //            image.loadImage(content.imageUrl)
+            cover.loadImage(content.imageUrl)
         }
     }
 }

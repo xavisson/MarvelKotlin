@@ -6,4 +6,5 @@
     <string name="characterdetail_label_description">Description</string>
     <string name="characterdetail_label_comics">Comics</string>
     <string name="characterdetail_text_comics_available">Comics available:</string>
+    <string name="characterdetail_text_comics_not_available">There are no comics available of this character</string>
 </resources>
