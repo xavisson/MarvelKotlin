@@ -5,6 +5,9 @@ import com.xavisson.marvel.domain.character.CharacterApi
 import com.xavisson.marvel.domain.character.CharacterResource
 import com.xavisson.marvel.domain.character.GetCharacterFromId
 import com.xavisson.marvel.domain.character.GetCharacterFromIdUseCase
+import com.xavisson.marvel.domain.comic.ComicResource
+import com.xavisson.marvel.domain.comic.GetComicsFromCharacterId
+import com.xavisson.marvel.domain.comic.GetComicsFromCharacterIdUseCase
 import com.xavisson.marvel.domain.executor.ThreadScheduler
 import com.xavisson.marvel.injection.PerActivity
 import com.xavisson.marvel.injection.components.ActivityComponent
@@ -23,10 +26,12 @@ class CharacterDetailModule(private val activity: AppCompatActivity) : ActivityM
 
     @Provides
     fun provideCharacterDetailPresenter(
-            getCharacterFromIdUseCase: GetCharacterFromIdUseCase
+            getCharacterFromIdUseCase: GetCharacterFromIdUseCase,
+            getComicsFromCharacterIdUseCase: GetComicsFromCharacterIdUseCase
     ): CharacterDetailPresenter {
         return CharacterDetailPresenter(
-                getCharacterFromIdUseCase
+                getCharacterFromIdUseCase,
+                getComicsFromCharacterIdUseCase
         )
     }
 
@@ -37,6 +42,17 @@ class CharacterDetailModule(private val activity: AppCompatActivity) : ActivityM
     ): GetCharacterFromIdUseCase {
         return GetCharacterFromId(
                 characterResource = characterResource,
+                threadScheduler = threadScheduler
+        )
+    }
+
+    @Provides
+    fun provideGetComicsFromCharacterIdUseCase(
+            comicResource: ComicResource,
+            threadScheduler: ThreadScheduler
+    ): GetComicsFromCharacterIdUseCase {
+        return GetComicsFromCharacterId(
+                comicResource = comicResource,
                 threadScheduler = threadScheduler
         )
     }

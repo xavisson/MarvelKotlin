@@ -7,7 +7,8 @@ import com.xavisson.marvel.presentation.characterlist.toUI
 import io.reactivex.rxkotlin.subscribeBy
 
 class CharacterDetailPresenter(
-        private val getCharacterFromIdUseCase: GetCharacterFromIdUseCase
+        private val getCharacterFromIdUseCase: GetCharacterFromIdUseCase,
+        private val getComicsFromCharacterIdUseCase: GetComicsFromCharacterIdUseCase
 ) : BasePresenter<CharacterDetailView>() {
 
     var characterId: Int? = null

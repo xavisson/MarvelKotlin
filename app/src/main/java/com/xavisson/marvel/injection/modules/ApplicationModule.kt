@@ -8,7 +8,8 @@ import javax.inject.Singleton
 
 @Module(includes = arrayOf(
         ExecutorsModule::class,
-        CharacterModule::class))
+        CharacterModule::class,
+        ComicModule::class))
 class ApplicationModule(private val application: Application) {
     @Provides
     @Singleton
