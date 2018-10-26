@@ -21,4 +21,8 @@ class CharacterDetailPresenter(
                 onNext = { getView()?.showCharacterDetails(it.toUI())}
         )
     }
+
+    fun onComicPressed(comic: ComicItemUI) {
+
+    }
 }
