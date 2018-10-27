@@ -8,6 +8,7 @@ import java.lang.ref.WeakReference
 
 interface ActivityNavigator {
     fun goToCharacterDetail(characterId: Int)
+    fun closeDetail()
 }
 
 class ApplicationActivityNavigator(
@@ -22,6 +23,10 @@ class ApplicationActivityNavigator(
         val intent = Intent(activity, CharacterDetailActivity::class.java)
         intent.putExtra(CHARACTER_ID, characterId)
         activity?.startActivity(intent)
+    }
+
+    override fun closeDetail() {
+        activity?.onBackPressed()
     }
 }
 

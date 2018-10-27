@@ -1,5 +1,6 @@
 package com.xavisson.marvel.presentation.characterdetail
 
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.LinearLayout
 import com.pedrogomez.renderers.ListAdapteeCollection
@@ -41,6 +42,7 @@ class CharacterDetailActivity : BaseActivity(), CharacterDetailView {
 
     override fun setupViews() {
         presenter.characterId = intent.getIntExtra(IntentExtras.CHARACTER_ID, ID_NOT_FOUND)
+        setupToolbar()
         setupAdapter()
         setupRecyclerView()
     }
@@ -65,6 +67,11 @@ class CharacterDetailActivity : BaseActivity(), CharacterDetailView {
 
     private fun List<ComicUI>.hasItems(): Boolean {
         return size > 0
+    }
+
+    private fun setupToolbar() {
+        toolbar.navigationIcon = ContextCompat.getDrawable(this, R.drawable.ic_back_arrow)
+        toolbar.setNavigationOnClickListener { presenter.onBackPressed() }
     }
 
     private fun setupAdapter() {

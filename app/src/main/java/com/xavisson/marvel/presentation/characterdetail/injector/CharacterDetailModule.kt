@@ -17,6 +17,8 @@ import com.xavisson.marvel.injection.modules.CharacterModule
 import com.xavisson.marvel.presentation.characterdetail.CharacterDetailActivity
 import com.xavisson.marvel.presentation.characterdetail.CharacterDetailPresenter
 import com.xavisson.marvel.presentation.characterlist.injector.MarvelModule
+import com.xavisson.marvel.presentation.navigator.ActivityNavigator
+import com.xavisson.marvel.presentation.navigator.ApplicationActivityNavigator
 import dagger.Component
 import dagger.Module
 import dagger.Provides
@@ -27,11 +29,13 @@ class CharacterDetailModule(private val activity: AppCompatActivity) : ActivityM
     @Provides
     fun provideCharacterDetailPresenter(
             getCharacterFromIdUseCase: GetCharacterFromIdUseCase,
-            getComicsFromCharacterIdUseCase: GetComicsFromCharacterIdUseCase
+            getComicsFromCharacterIdUseCase: GetComicsFromCharacterIdUseCase,
+            activityNavigator: ActivityNavigator
     ): CharacterDetailPresenter {
         return CharacterDetailPresenter(
                 getCharacterFromIdUseCase,
-                getComicsFromCharacterIdUseCase
+                getComicsFromCharacterIdUseCase,
+                activityNavigator
         )
     }
 
@@ -56,6 +60,11 @@ class CharacterDetailModule(private val activity: AppCompatActivity) : ActivityM
                 threadScheduler = threadScheduler
         )
     }
+
+    @Provides
+    fun provideActivityNavigator(): ActivityNavigator = ApplicationActivityNavigator(
+            activity
+    )
 }
 
 @PerActivity
