@@ -1,15 +1,16 @@
 package com.xavisson.marvel.domain.character
 
+import com.xavisson.marvel.domain.repository.RxBaseRepository
 import io.reactivex.Observable
 
 class CharacterResource(
-        private val characterApi: CharacterApi
+        private val searchCharactersRepository: RxBaseRepository<String, SearchCharactersItems>
 ) {
 
     var currentCharacterList: List<CharacterItem> = emptyList()
 
     fun searchForCharacters(characterName: String): Observable<List<CharacterItem>> {
-        return characterApi.searchForCharacter(characterName)
+        return searchCharactersRepository.getByKey(characterName)
                 .map { it.items }
                 .doOnNext { currentCharacterList = it }
     }
