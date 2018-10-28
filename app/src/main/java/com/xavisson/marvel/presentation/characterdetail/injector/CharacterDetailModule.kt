@@ -1,7 +1,6 @@
 package com.xavisson.marvel.presentation.characterdetail.injector
 
 import android.support.v7.app.AppCompatActivity
-import com.xavisson.marvel.domain.character.CharacterApi
 import com.xavisson.marvel.domain.character.CharacterResource
 import com.xavisson.marvel.domain.character.GetCharacterFromId
 import com.xavisson.marvel.domain.character.GetCharacterFromIdUseCase
@@ -13,10 +12,9 @@ import com.xavisson.marvel.injection.PerActivity
 import com.xavisson.marvel.injection.components.ActivityComponent
 import com.xavisson.marvel.injection.components.ApplicationComponent
 import com.xavisson.marvel.injection.modules.ActivityModule
-import com.xavisson.marvel.injection.modules.CharacterModule
 import com.xavisson.marvel.presentation.characterdetail.CharacterDetailActivity
 import com.xavisson.marvel.presentation.characterdetail.CharacterDetailPresenter
-import com.xavisson.marvel.presentation.characterlist.injector.MarvelModule
+import com.xavisson.marvel.injection.modules.MarvelModule
 import com.xavisson.marvel.presentation.navigator.ActivityNavigator
 import com.xavisson.marvel.presentation.navigator.ApplicationActivityNavigator
 import dagger.Component
@@ -70,7 +68,7 @@ class CharacterDetailModule(private val activity: AppCompatActivity) : ActivityM
 @PerActivity
 @Component(
         dependencies = arrayOf(ApplicationComponent::class),
-        modules = arrayOf(CharacterDetailModule::class, MarvelModule::class)
+        modules = arrayOf(CharacterDetailModule::class)
 )
 interface CharacterDetailComponent : ActivityComponent {
     fun inject(activity: CharacterDetailActivity)
