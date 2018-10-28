@@ -49,7 +49,7 @@ class CharacterDetailActivity : BaseActivity(), CharacterDetailView {
 
     override fun showCharacterDetails(characterDetails: CharacterItemUI) {
         characterImage.loadImage(characterDetails.imageUrl)
-        toolbar.title = characterDetails.name
+        characterName.text = characterDetails.name
         description.text = characterDetails.description
         comicsAvailable.text = characterDetails.comics?.available.toString()
     }
