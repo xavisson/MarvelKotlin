@@ -6,13 +6,14 @@ import com.xavisson.marvel.data.client.MarvelApiClient
 import com.xavisson.marvel.data.utils.getHash
 import com.xavisson.marvel.domain.character.CharacterApi
 import com.xavisson.marvel.domain.character.CharacterItem
+import com.xavisson.marvel.domain.character.SearchCharactersItems
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 class CharacterApiClient : CharacterApi {
 
-    override fun searchForCharacter(searchText: String): Observable<List<CharacterItem>> {
+    override fun searchForCharacter(searchText: String): Observable<SearchCharactersItems> {
 
         val marvelApiClient = ApiClientBuilder(
                 MarvelApiClient(emptySet())
@@ -28,7 +29,7 @@ class CharacterApiClient : CharacterApi {
                 timestamp = timestamp,
                 hash = hash,
                 nameStartsWith = nameStartsWith
-        ).map { it.toDomain() }
+        ).map { it.toDomain(searchText) }
     }
 }
 

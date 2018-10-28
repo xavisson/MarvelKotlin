@@ -10,6 +10,7 @@ class CharacterResource(
 
     fun searchForCharacters(characterName: String): Observable<List<CharacterItem>> {
         return characterApi.searchForCharacter(characterName)
+                .map { it.items }
                 .doOnNext { currentCharacterList = it }
     }
 
