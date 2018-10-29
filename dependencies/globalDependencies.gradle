@@ -8,5 +8,5 @@ ext {
     //Test
     kluentVersion = '1.20'
     junitVersion = '4.12'
-    kotlinMockitoVersion = '1.4.0'
+    kotlinMockitoVersion = '1.5.0'
 }

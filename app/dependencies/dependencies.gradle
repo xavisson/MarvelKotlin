@@ -5,4 +5,7 @@ ext {
     rxAndroidVersion = '2.0.1'
     rxKotlinVersion = '2.0.3'
     glideVersion = '4.8.0'
+    mockitoVersion = '2.13.0'
+    mockitoAndroidVersion = '2.13.0'
+    baristaVersion = '1.0.0'
 }

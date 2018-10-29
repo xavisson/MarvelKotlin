@@ -73,4 +73,14 @@ dependencies {
 
     implementation "com.github.bumptech.glide:glide:${glideVersion}"
     kapt "com.github.bumptech.glide:compiler:${glideVersion}"
+
+    testImplementation "junit:junit:${junitVersion}"
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    testImplementation "org.mockito:mockito-core:${mockitoVersion}"
+    androidTestImplementation "org.mockito:mockito-android:${mockitoAndroidVersion}"
+    androidTestImplementation "com.nhaarman:mockito-kotlin:${kotlinMockitoVersion}"
+    androidTestImplementation("com.schibsted.spain:barista:${baristaVersion}") {
+        exclude group: 'com.android.support'
+    }
 }

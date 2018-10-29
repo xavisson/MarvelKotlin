@@ -7,7 +7,6 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}"
 
     testImplementation "junit:junit:${junitVersion}"
-    testImplementation "org.mockito:mockito-inline:${mockitoVersion}"
     testImplementation "org.amshove.kluent:kluent:${kluentVersion}"
 }
 
