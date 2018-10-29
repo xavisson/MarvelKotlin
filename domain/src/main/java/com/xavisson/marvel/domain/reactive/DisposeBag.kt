@@ -5,7 +5,7 @@ import java.util.*
 
 class DisposeBag {
 
-    private val disposableCollection: MutableCollection<Disposable> = LinkedList()
+    val disposableCollection: MutableCollection<Disposable> = LinkedList()
 
     fun dispose() {
         disposableCollection.forEach(Disposable::dispose)
