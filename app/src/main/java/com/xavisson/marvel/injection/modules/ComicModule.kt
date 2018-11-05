@@ -11,7 +11,6 @@ import javax.inject.Singleton
 open class ComicModule {
 
     @Provides
-    @Singleton
     fun provideComicResource(
             characterApi: ComicApi
     ): ComicResource {
