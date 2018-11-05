@@ -9,7 +9,6 @@ import com.xavisson.marvel.injection.PerActivity
 import com.xavisson.marvel.injection.components.ActivityComponent
 import com.xavisson.marvel.injection.components.ApplicationComponent
 import com.xavisson.marvel.injection.modules.ActivityModule
-import com.xavisson.marvel.injection.modules.MarvelModule
 import com.xavisson.marvel.presentation.characterlist.CharacterListActivity
 import com.xavisson.marvel.presentation.characterlist.CharacterListPresenter
 import com.xavisson.marvel.presentation.navigator.ActivityNavigator

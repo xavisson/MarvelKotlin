@@ -1,5 +1,6 @@
 package com.xavisson.marvel.injection.modules
 
+import com.xavisson.marvel.data.character.CharacterApiClient
 import com.xavisson.marvel.data.character.SearchCharactersApiDataSource
 import com.xavisson.marvel.data.repository.CachePolicyTtl
 import com.xavisson.marvel.data.repository.RxInMemoryCacheDataSource
@@ -13,7 +14,7 @@ import dagger.Provides
 import dagger.Reusable
 import javax.inject.Singleton
 
-@Module(includes = arrayOf(TimeProviderModule::class, MarvelModule::class))
+@Module(includes = arrayOf(TimeProviderModule::class))
 open class CharacterModule {
 
     companion object {
@@ -61,5 +62,10 @@ open class CharacterModule {
                             CachePolicyTtl.oneMinute(timeProvider = timeProvider)
                     )
             )
+
+    @Provides
+    fun provideCharacterApi(): CharacterApi {
+        return CharacterApiClient()
+    }
 
 }

@@ -14,7 +14,6 @@ import com.xavisson.marvel.injection.components.ApplicationComponent
 import com.xavisson.marvel.injection.modules.ActivityModule
 import com.xavisson.marvel.presentation.characterdetail.CharacterDetailActivity
 import com.xavisson.marvel.presentation.characterdetail.CharacterDetailPresenter
-import com.xavisson.marvel.injection.modules.MarvelModule
 import com.xavisson.marvel.presentation.navigator.ActivityNavigator
 import com.xavisson.marvel.presentation.navigator.ApplicationActivityNavigator
 import dagger.Component
