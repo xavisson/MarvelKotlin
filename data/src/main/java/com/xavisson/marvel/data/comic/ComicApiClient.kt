@@ -6,6 +6,7 @@ import com.xavisson.marvel.data.client.MarvelApiClient
 import com.xavisson.marvel.data.utils.getHash
 import com.xavisson.marvel.domain.comic.ComicApi
 import com.xavisson.marvel.domain.comic.ComicItem
+import com.xavisson.marvel.domain.comic.SearchComicItems
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -13,7 +14,7 @@ import retrofit2.http.Query
 
 class ComicApiClient : ComicApi {
 
-    override fun getComicsFromCharacterId(characterId: Int): Observable<List<ComicItem>> {
+    override fun getComicsFromCharacterId(characterId: Int): Observable<SearchComicItems> {
 
         val marvelApiClient = ApiClientBuilder(
                 MarvelApiClient(emptySet())
@@ -28,7 +29,7 @@ class ComicApiClient : ComicApi {
                 publicKey = publicAPIKey,
                 timestamp = timestamp,
                 hash = hash
-        ).map { it.toDomain() }
+        ).map { it.toDomain(characterId.toString()) }
     }
 }
 
