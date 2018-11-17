@@ -5,6 +5,10 @@ It shows a list of super-heros retrieved from Marvel API, allows to search by na
 
 The API key can be set [as described here](https://medium.com/code-better/hiding-api-keys-from-your-android-repository-b23f5598b906)
 
+# Architecture
+A diagram of the chosen architecture is shown below. It consists in an approach of Clean Architecture in which the business logic of the app is placed in the Resource. 
+![](/screenshots/architecture.svg)
+
 # Screenshots
 
 List of heroes             |  Detail view
